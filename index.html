@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="cs" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Angličtina pro Lenku</title>
+  <meta name="description" content="Osobní aplikace pro učení angličtiny – lekce, poslech, výslovnost, testy a statistiky.">
+  <meta name="theme-color" content="#F6F5FB">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Angličtina">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="css/app.css">
+  <script>
+    // Nastavit motiv ještě před vykreslením (bez probliknutí)
+    try {
+      var s = JSON.parse(localStorage.getItem('lenka-english-v1') || '{}').settings || {};
+      var t = s.theme && s.theme !== 'auto' ? s.theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+      if (s.fontScale) document.documentElement.style.setProperty('--fs', s.fontScale);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="app"><main id="view"></main></div>
+  <noscript>Pro spuštění aplikace povolte JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
